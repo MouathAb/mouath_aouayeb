@@ -1,4 +1,5 @@
 @import url(fontawesome-all.min.css);
+@import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400';
 
 /*
 	Hyperspace by HTML5 UP
@@ -2612,6 +2613,59 @@ input, select, textarea {
 			.image.main img {
 				width: 100%;
 			}
+/* MePhoto */
+
+	.me {
+		border-radius: 8px;
+		border: 0;
+		display: inline-block;
+		position: relative;
+	}
+
+		.me me {
+			border-radius: 8px;
+			display: block;
+		}
+
+		.me.left, .me.right {
+			max-width: 40%;
+		}
+
+			.me.left img, .me.right me {
+				width: 100%;
+			}
+
+		.me.left {
+			float: left;
+			margin: 0 1.5em 1em 0;
+			top: 0.25em;
+		}
+
+		.me.right {
+			float: right;
+			margin: 0 0 1em 1.5em;
+			top: 0.25em;
+		}
+
+		.me.fit {
+			display: block;
+			margin: 0 0 2em 0;
+			width: 100%;
+		}
+
+			.me.fit me {
+				width: 100%;
+			}
+
+		.me.main {
+			display: block;
+			margin: 0 0 3em 0;
+			width: 100%;
+		}
+
+			.me.main me {
+				width: 100%;
+			}
 
 /* List */
 
@@ -3002,6 +3056,20 @@ input, select, textarea {
 		body.is-ie .spotlights > section {
 			min-height: 0;
 		}
+        
+        .spotlight > section > .me {
+			display: inline-block;
+			margin-left: 4em;
+			padding: 0.65em;
+			border-radius: 100%;
+			border: solid 1px;
+		}
+
+			.spotlight > section > .me me {
+				display: block;
+				border-radius: 100%;
+				width: 16em;
+			}
 
 		.spotlights > section > .image {
 			background-position: center center;
@@ -3090,6 +3158,8 @@ input, select, textarea {
 			.spotlights > section > .content {
 				padding: 4em 4em 2em 4em ;
 			}
+            
+
 
 		}
 
@@ -3103,7 +3173,16 @@ input, select, textarea {
 					width: 100%;
 					height: 50vh;
 				}
-
+            
+                .spotlight > section > .me {
+                        -moz-flex: 0 1 auto;
+                        -webkit-flex: 0 1 auto;
+                        -ms-flex: 0 1 auto;
+                        flex: 0 1 auto;
+                        margin-left: 0;
+                        margin-bottom: 2em;
+                    }
+            
 				.spotlights > section > .content {
 					width: 100%;
 				}
@@ -3115,6 +3194,7 @@ input, select, textarea {
 					-ms-transform: translateY(1em);
 					transform: translateY(1em);
 				}
+                
 
 		}
 
@@ -3128,9 +3208,19 @@ input, select, textarea {
 			.spotlights > section > .content {
 				padding: 3em 2em 1em 2em ;
 			}
+            
+            .spotlight > section > .me {
+				padding: 0.35em;
+			}
+
+				.spotlight > section > .me me {
+					width: 12em;
+				}
 
 		}
-
+    .spotlight .me {
+            border-color: rgba(255, 255, 255, 0.35);
+        }
 /* Table */
 
 	.table-wrapper {
@@ -3883,6 +3973,33 @@ input, select, textarea {
 		#intro p {
 			font-size: 1.25em;
 		}
+        #intro .spotlight .me {
+			border-color: #dddddd;
+		}
+        #intro > .intro {
+			padding: 5em 5em 3em 5em ;
+			border-top: solid 1px #dddddd;
+		}
+
+			#intro > .intro:first-child {
+				border-top: 0;
+			}
+
+			#intro > .intro > .me.main:first-child {
+				margin: -5em 0 5em -5em;
+				width: calc(100% + 10em);
+				border-top-right-radius: 0.25em;
+				border-top-left-radius: 0.25em;
+				border-bottom-right-radius: 0;
+				border-bottom-left-radius: 0;
+			}
+
+				#intro > .intro > .me.main:first-child me {
+					border-top-right-radius: 0.25em;
+					border-top-left-radius: 0.25em;
+					border-bottom-right-radius: 0;
+					border-bottom-left-radius: 0;
+				}
 
 			@media screen and (max-width: 980px) {
 
