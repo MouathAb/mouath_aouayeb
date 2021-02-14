@@ -2613,58 +2613,60 @@ input, select, textarea {
 			.image.main img {
 				width: 100%;
 			}
-/* MePhoto */
 
-	.me {
-		border-radius: 8px;
+/* MyPhoto */
+
+	.imageme {
+		border-radius: 50%;
 		border: 0;
 		display: inline-block;
 		position: relative;
 	}
 
-		.me me {
-			border-radius: 8px;
+		.imageme img {
+			border-radius: 50%;
 			display: block;
 		}
 
-		.me.left, .me.right {
+		.imageme.left, .imageme.right {
 			max-width: 40%;
 		}
 
-			.me.left img, .me.right me {
+			.imageme.left img, .imageme.right img {
 				width: 100%;
 			}
 
-		.me.left {
+		.imageme.left {
 			float: left;
 			margin: 0 1.5em 1em 0;
 			top: 0.25em;
 		}
 
-		.me.right {
+		.imageme.right {
 			float: right;
 			margin: 0 0 1em 1.5em;
 			top: 0.25em;
 		}
 
-		.me.fit {
+		.imageme.fit {
 			display: block;
 			margin: 0 0 2em 0;
 			width: 100%;
 		}
 
-			.me.fit me {
+			.imageme.fit img {
 				width: 100%;
 			}
 
-		.me.main {
+		.imageme.main {
+            float:right;
 			display: block;
 			margin: 0 0 3em 0;
-			width: 100%;
+			width: 50%;
 		}
 
-			.me.main me {
-				width: 100%;
+			.imageme.main img {
+				width: 50%;
 			}
 
 /* List */
@@ -3056,8 +3058,7 @@ input, select, textarea {
 		body.is-ie .spotlights > section {
 			min-height: 0;
 		}
-        
-        .spotlight > section > .me {
+        .spotlight .imageme {
 			display: inline-block;
 			margin-left: 4em;
 			padding: 0.65em;
@@ -3065,12 +3066,11 @@ input, select, textarea {
 			border: solid 1px;
 		}
 
-			.spotlight > section > .me me {
+			.spotlight .imageme img {
 				display: block;
 				border-radius: 100%;
 				width: 16em;
 			}
-
 		.spotlights > section > .image {
 			background-position: center center;
 			background-size: cover;
@@ -3158,8 +3158,6 @@ input, select, textarea {
 			.spotlights > section > .content {
 				padding: 4em 4em 2em 4em ;
 			}
-            
-
 
 		}
 
@@ -3168,21 +3166,19 @@ input, select, textarea {
 			.spotlights > section {
 				display: block;
 			}
-
+                .spotlight .imageme {
+					-moz-flex: 0 1 auto;
+					-webkit-flex: 0 1 auto;
+					-ms-flex: 0 1 auto;
+					flex: 0 1 auto;
+					margin-left: 0;
+					margin-bottom: 2em;
+				}
 				.spotlights > section > .image {
 					width: 100%;
 					height: 50vh;
 				}
-            
-                .spotlight > section > .me {
-                        -moz-flex: 0 1 auto;
-                        -webkit-flex: 0 1 auto;
-                        -ms-flex: 0 1 auto;
-                        flex: 0 1 auto;
-                        margin-left: 0;
-                        margin-bottom: 2em;
-                    }
-            
+
 				.spotlights > section > .content {
 					width: 100%;
 				}
@@ -3194,7 +3190,6 @@ input, select, textarea {
 					-ms-transform: translateY(1em);
 					transform: translateY(1em);
 				}
-                
 
 		}
 
@@ -3204,23 +3199,24 @@ input, select, textarea {
 				height: 50vh;
 				min-height: 15em;
 			}
-
-			.spotlights > section > .content {
-				padding: 3em 2em 1em 2em ;
-			}
             
-            .spotlight > section > .me {
+            .spotlight .imageme {
 				padding: 0.35em;
 			}
 
-				.spotlight > section > .me me {
+				.spotlight .imageme img {
 					width: 12em;
 				}
+            
+			.spotlights > section > .content {
+				padding: 3em 2em 1em 2em ;
+			}
 
 		}
-    .spotlight .me {
-            border-color: rgba(255, 255, 255, 0.35);
-        }
+    .spotlight .imageme {
+		border-color: rgba(255, 255, 255, 0.35);
+	}
+
 /* Table */
 
 	.table-wrapper {
@@ -3557,13 +3553,47 @@ input, select, textarea {
 	#sidebar + #wrapper {
 		margin-left: 18em;
 	}
+    #wrapper .spotlight .imageme {
+			border-color: #dddddd;
+		}
+    #wrapper > .wrapper > .imageme.main:first-child {
+				margin: -5em 0 5em -5em;
+				width: calc(100% + 10em);
+				border-top-right-radius: 0.25em;
+				border-top-left-radius: 0.25em;
+				border-bottom-right-radius: 0;
+				border-bottom-left-radius: 0;
+			}
 
+				#wrapper > .wrapper > .imageme.main:first-child img {
+					border-top-right-radius: 0.25em;
+					border-top-left-radius: 0.25em;
+					border-bottom-right-radius: 0;
+					border-bottom-left-radius: 0;
+				}
 		@media screen and (max-width: 1280px) {
 
 			#sidebar + #wrapper {
 				margin-left: 0;
 				padding-top: 3.5em;
 			}
+            #wrapper > .wrapper > .imageme.main:first-child {
+					margin: -4em 0 4em -4em;
+					width: calc(100% + 8em);
+				}
+            
+		}
+        
+        @media screen and (max-width: 980px) {
+
+			#sidebar + #wrapper {
+				padding: 4em 3em 2em 3em ;
+			}
+
+				#wrapper > .wrapper > .imageme.main:first-child {
+					margin: -4em 0 4em -3em;
+					width: calc(100% + 6em);
+				}
 
 		}
 
@@ -3572,6 +3602,11 @@ input, select, textarea {
 			#sidebar + #wrapper {
 				padding-top: 0;
 			}
+            
+            #wrapper > .wrapper > .imageme.main:first-child {
+					margin: -3em 0 2em -2em;
+					width: calc(100% + 4em);
+				}
 
 		}
 
@@ -3973,19 +4008,10 @@ input, select, textarea {
 		#intro p {
 			font-size: 1.25em;
 		}
-        #intro .spotlight .me {
-			border-color: #dddddd;
-		}
-        #intro > .intro {
-			padding: 5em 5em 3em 5em ;
-			border-top: solid 1px #dddddd;
-		}
-
-			#intro > .intro:first-child {
-				border-top: 0;
-			}
-
-			#intro > .intro > .me.main:first-child {
+    #intro .spotlight .imageme {
+		border-color: #dddddd;
+    }
+    #intro .imageme.main:first-child {
 				margin: -5em 0 5em -5em;
 				width: calc(100% + 10em);
 				border-top-right-radius: 0.25em;
@@ -3994,17 +4020,20 @@ input, select, textarea {
 				border-bottom-left-radius: 0;
 			}
 
-				#intro > .intro > .me.main:first-child me {
+				#intro .imageme.main:first-child img {
 					border-top-right-radius: 0.25em;
 					border-top-left-radius: 0.25em;
 					border-bottom-right-radius: 0;
 					border-bottom-left-radius: 0;
 				}
-
 			@media screen and (max-width: 980px) {
 
 				#intro p br {
 					display: none;
+				}
+                #intro .imageme.main:first-child {
+					margin: -4em 0 4em -3em;
+					width: calc(100% + 6em);
 				}
 
 			}
@@ -4014,6 +4043,11 @@ input, select, textarea {
 				#intro p {
 					font-size: 1em;
 				}
+                
+                #intro .imageme.main:first-child {
+					margin: -3em 0 2em -2em;
+					width: calc(100% + 4em);
+				}
 
 			}
 
@@ -4022,5 +4056,9 @@ input, select, textarea {
 			#intro {
 				background-attachment: scroll;
 			}
+            #intro .imageme.main:first-child {
+					margin: -4em 0 4em -4em;
+					width: calc(100% + 8em);
+				}
 
 		}
